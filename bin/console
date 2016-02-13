@@ -1,10 +1,26 @@
 #!/usr/bin/env ruby
 
 require "gandi-api"
+require 'awesome_print'
 
 unless ENV['GANDI_API_KEY']
   puts "Need to setup GANDI_API_KEY env var."
   exit 0
 end
 
-apiclient = GandiApi::Client.new ENV['GANDI_API_KEY']
+opts = { api_key: ENV['GANDI_API_KEY'] }
+
+gandi = GandiApi::Client.new opts
+
+puts '------------------------'
+puts 'Account Info'
+ap gandi.hosting_account_info
+
+puts '------------------------'
+puts 'Datacenters'
+datacenters = gandi.datacenters
+ap datacenters
+
+puts '------------------------'
+puts 'System Disk Images'
+ap gandi.system_images datacenters['FR-SD2']
