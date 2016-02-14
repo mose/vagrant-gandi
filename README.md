@@ -1,6 +1,8 @@
 vagrant-gandi
 ======================
 
+_This project is work in progress and not ready for use yet_
+
 Vagrant-gandi is a provider plugin for Vagrant, to enable management of Gandi IaaS virtual servers.
 
 - create and destroy servers
