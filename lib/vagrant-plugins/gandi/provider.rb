@@ -9,8 +9,9 @@ module VagrantPlugins
         @machine = machine
       end
 
-      def server(machine, opts = {})
-        gandi_api = 
+      def action(name)
+        action_method = "action_#{name}".to_sym
+        Action.send(action_method) if Action.respond_to?(action_method)
       end
 
     end
