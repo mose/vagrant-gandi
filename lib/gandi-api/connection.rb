@@ -10,10 +10,10 @@ module GandiApi
     }
 
     def initialize(opts = {})
-      raise(RuntimeError, "You need to specify a Gandi API Key.") unless opts.has_key?(:api_key) && opts[:api_key]
+      raise(RuntimeError, 'You need to specify a Gandi API Key.') unless opts.has_key?(:api_key) && opts[:api_key]
       @api_key = opts[:api_key]
       @apiclient = XMLRPC::Client.new2('https://rpc.gandi.net/xmlrpc/')
-      @apiclient.http_header_extra = { "Accept-Encoding" => "gzip" }
+      @apiclient.http_header_extra = { 'Accept-Encoding' => 'gzip' }
       @apiclient.set_parser ZlibParser.new(@apiclient.send(:parser))
     end
 

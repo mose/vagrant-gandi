@@ -20,7 +20,7 @@ module VagrantPlugins
           }
 
           fog_config[:gandi_key_id] = region_config.access_key_id
-          @logger.info("Connecting to Gandi...")
+          @logger.info('Connecting to Gandi...')
 
           @app.call(env)
         end        
